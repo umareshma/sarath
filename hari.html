@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+	 $(document).ready(function(){
+     $(document).on('click','.add-row',function(){
+	 
+		var table=$("#umahari");
+		$("tr:eq(1)").clone().appendTo("#umahari");
+		
+		$("#umahari").click(function(){
+		    var quantity=$(this).closest('tr').find("#quantity").val();       
+            var price=$(this).closest('tr').find("#price").val();
+            var tax=$(this).closest('tr').find("#tax").val();
+            var amount=quantity*price;
+            var taxamount=amount*(tax/100);
+            var totalamount=(amount+taxamount);
+            $(this).closest('tr').find("#amount").val(amount);
+            $(this).closest('tr').find("#taxamount").val(taxamount);
+            $(this).closest('tr').find("#totalamount").val(totalamount); 
+ 
+         
+		  });
+		  
+          $(document).on('click','#calculate',function(){
+		   
+		 
+		   
+		   var quantity=$(this).closest('tr').find("#quantity").val();
+            var price=$(this).closest('tr').find("#price").val();
+            var tax=$(this).closest('tr').find("#tax").val();
+            var amount=quantity*price;
+            var taxamount=amount*(tax/100);
+            var totalamount=(amount+taxamount);
+            $(this).closest('tr').find("#amount").val(amount);
+            $(this).closest('tr').find("#taxamount").val(taxamount);
+            $(this).closest('tr').find("#totalamount").val(totalamount);	       
+			});
+       
+	   $(document).on('click','.delete-row',function(){
+	   $("#umahari").find('input[name="record"]').each(function(){
+                if($(this).is(":checked")){
+            
+                    $(this).closest("tr").remove();
+                	}
+					});
+});
+      });
+		
+		
+    });    				
+	</script>
+    </head>
+	
+    <body>
+	
+	 <table id="umahari">
+	   <thead>
+	    <tr>
+	 <th>select</th>
+     <th>Quantity</th>
+     <th>Price</th>
+	 <th>Tax</th>
+	 <th>Amount</th>
+	 <th>Tax Amount</th>
+	 <th>Total Amount</th>
+	 <th>calculate</th>
+	 </tr>
+	 </thead>
+	 
+    <tr>
+        <td><input type="checkbox" id="name"  name="record"></td>
+	    <td><input type="text" id="quantity" name="record" ></td> 
+        <td><input type="text" id="price" name="record"></td>
+		<td><input type="text" id="tax" name="record" ></td>
+		<td><input type="text" id="amount"   name="record" readonly ></td>	 
+	    <td><input type="text"id="taxamount"  name="record" readonly></td>	 
+	    <td><input type="text" id="totalamount" name="record" readonly></td>
+		<td><input type ="button" id="calculate"name="record" value="calculate" ></input></td>
+		<button type="button" class="add-row">add Row</button>
+		<button type="button" class="delete-row">Delete Row</button>
+
+       </tr> 
+	   </table> 
+		</body>
+    </html>
+
+
