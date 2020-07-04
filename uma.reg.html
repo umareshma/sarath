@@ -1,0 +1,87 @@
+
+<html>
+<head>
+</head>
+<body>
+<h2>Registration Form</h2>
+<script>
+ function myfun(){
+ var alphabet = /^[A-Za-z]+$/;
+ 
+ var a = document.getElementById("user_name").value;
+ var password = document.getElementById("password").value;
+ var conform = document.getElementById("conform_password").value;
+ var mail = document.getElementById("email_id").value;
+ var mobile = document.getElementById("mobile_no").value;
+ if(a==""){
+ alert ("please fill the name");
+ return false;
+ } 
+ 
+ if(a.match(alphabet))
+ true;
+ else{
+ alert("only alphabet");
+ return false;
+ 
+ }
+ if(password ==""){
+alert("please fill the password");
+ return false;
+ }
+ if(password.length<5){
+ alert("password length must be greater then 5 char");
+ return false;
+ }
+ if(password.length>20){
+ alert("pass_word must be smaller then 5 char");
+ return false;
+ }
+ if(password!=conform){
+ alert("password are not same");
+ return false;
+ }
+ if(mail==""){
+ alert("enter the mail id");
+ return false;
+ }
+ if(mail.indexOf('@')<=0){
+ alert("invaild @ position");
+ return false;
+ }
+ if(mobile==""){
+ alert("please fill the mobile number");
+ return false;
+ }
+ if(mobile.length<10 ){
+ alert("mobile num must be 10 digit");
+ return false;
+ 
+ }
+ if(mobile.length>10){
+ alert("mobile num must be 10 digit");
+ return false;
+ }
+ }
+</script>
+
+<form onsubmit="return myfun()">
+UserName : <input type="text" id="user_name"  placeholder="username">
+
+<br></br>
+password : <input type="password" id="password" placeholder="password" value="">
+
+<br></br>
+conformpassword : <input type="password" id="conform_password" placeholder="conformpassword" value="">
+
+<br></br>
+email id : <input type="text" id="email_id" placeholder="email" id" value="">
+
+<br></br>
+mobile number : <input type="number" id="mobile_no"  placeholder="number" value="">
+
+<br></br>
+<input type="submit" value="submit"></input>
+</form>
+</body>
+</html>
