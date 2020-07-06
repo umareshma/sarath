@@ -1,0 +1,42 @@
+<html>
+<body>
+<div id="uma">
+<button onclick="myFunction()">Try it</button>
+<input type="text" id="user" value="" ></div>
+
+<p id="demo"></p>
+<p id="uma1"></p>
+<p id="uma2"></p>
+<p id="uma3"></p>
+
+<script>
+function myFunction() {
+
+  let r = document.getElementById("user").value;
+ let s = r.split(",");
+  let u=s.sort();
+   document.getElementById("uma1").innerHTML =u;  
+   document.getElementById("demo").innerHTML = s.length;
+  
+   if(s.length%2==0)
+   {
+   alert("even "+s.length);
+   }
+   else
+   {
+   alert("odd"+s.length);
+   }
+   
+let h=s[s.length/2|0];
+  document.getElementById("uma2").innerHTML =h;
+ alert(h);
+let v = s
+ v = v.filter(item => item !== h)
+  document.getElementById("uma3").innerHTML = v;
+
+
+
+}  
+</script>
+</body>
+</html>
