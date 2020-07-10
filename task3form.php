@@ -2,8 +2,8 @@
 <?php
 
 //define variable  set to empty values
-$nameErr = $emailErr = $passwordErr = $conformpasswordErr = "";
-$name = $email = $password = $conformpassword = "";
+$nameErr = $emailErr = $passwordErr = $conformpasswordErr = $submitErr = "";
+$name = $email = $password = $conformpassword = $submit = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = htmlspecialchars($_REQUEST['name']);
@@ -43,17 +43,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		if($_POST['password']!= $_POST['conformpassword']){
 		$conformpasswordErr = "password not equel to same";
 	}
-	}
-	}
-	$thispage = htmlspecialchars($_SERVER['PHP_SELF']);
 	
- 
+	else {
+		include ("task3.php");
+	}
+
+	}
+}
+
+	$thispage = htmlspecialchars($_SERVER['PHP_SELF']);
+  
  ?>
  
 <html>
 
 <body>
-
+  
 <p><span >* required failed</span></p>
 <form method="POST" action="<?= $thispage ?>">
 
@@ -70,8 +75,8 @@ confirmpassword: <input type="password" name="conformpassword">
 
 <input type="submit" name="submit" value="submit"><br>
 </form>
+ 
 
-<?php include 'task3.php';?>
 <?php
 echo "<h2>Your Input:</h2>";
 echo $name;
